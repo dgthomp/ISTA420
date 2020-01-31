@@ -1,0 +1,61 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20200114163221
+Username: DESKTOP-3HVDQGI\DANIEL
+RunAs User: DESKTOP-3HVDQGI\DANIEL
+Configuration Name: 
+Machine: DESKTOP-3HVDQGI (Microsoft Windows NT 10.0.18362.0)
+Host Application: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe
+Process ID: 18636
+PSVersion: 5.1.18362.145
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.18362.145
+BuildVersion: 10.0.18362.145
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is c:\users\daniel\PowerShell_transcript.DESKTOP-3HVDQGI.le8Gq_F2.20200114163221.txt
+PS C:\users\daniel> mkdir ISTA420
+
+
+    Directory: C:\users\daniel
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----        1/14/2020   4:32 PM                ISTA420
+
+
+PS C:\users\daniel> cd ISTA420
+PS C:\users\daniel\ISTA420> notepad README.md
+PS C:\users\daniel\ISTA420> notepad .gitignore
+PS C:\users\daniel\ISTA420> mkdir Homework
+
+
+    Directory: C:\users\daniel\ISTA420
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----        1/14/2020   4:34 PM                Homework
+
+
+PS C:\users\daniel\ISTA420> mkdir Labs
+
+
+    Directory: C:\users\daniel\ISTA420
+
+
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+d-----        1/14/2020   4:34 PM                Labs
+
+
+PS C:\users\daniel\ISTA420> cd..
+PS C:\users\daniel> Stop-Transcript
+**********************
+Windows PowerShell transcript end
+End time: 20200114163443
+**********************
