@@ -1,0 +1,92 @@
+--Name: Daniel Thompson
+--Assignment: tsql-quiz03
+--Date: February 4 2020
+
+--You will use the Northwind databaase in SQLite to answer the following questions:
+--1. Write a report giving the employee id, ﬁrst name, last name, 
+--and the average amount of all orders by that employee.
+
+select E.EmployeeID, E.FirstName + ',' + E.LastName as employee_name, avg(OD.Quantity * OD.UnitPrice) as avg_amt
+from Employees as E 
+inner Join Orders as O
+on E.EmployeeID = O.EmployeeID
+inner Join [Order Details] as OD
+on O.OrderID = OD.OrderID
+group by E.EmployeeID, E.firstName, E.LastName
+order by avg_amt desc;
+go
+
+EmployeeID	employee_name	avg_amt
+7	Robert,King	802.8181
+9	Anne,Dodsworth	775.3644
+2	Andrew,Fuller	737.5487
+3	Janet,Leverling	663.7112
+5	Steven,Buchanan	645.8782
+4	Margaret,Peacock	595.6844
+1	Nancy,Davolio	585.9237
+8	Laura,Callahan	512.6962
+6	Michael,Suyama	465.4648
+
+--2. Write a report that lists our product categories and the 
+--average price of all products of that category. 
+--Include the category id, the category name, and the average price.
+
+select P.CategoryID, C.CategoryName, avg(P.UnitPrice) as avg_price
+from Categories as C
+Join Products as P
+on C.CategoryID = P.CategoryID
+group by P.CategoryID,C.CategoryName
+order by P.CategoryID;
+go
+
+CategoryID	CategoryName	avg_price
+1	Beverages	37.9791
+2	Condiments	23.0625
+3	Confections	25.16
+4	Dairy Products	28.73
+5	Grains/Cereals	20.25
+6	Meat/Poultry	54.0066
+7	Produce	32.37
+8	Seafood	20.6825
+
+--In some cities, we have customers, suppliers, and employees. 
+--Write a report that lists the customer’s contact name, the supplier’s contact name, 
+--the employee’s name, and the city in which all three are located.
+
+
+select C.ContactName, S.ContactName, C.city, (E.FirstName + ', ' + E.LastName) as EmployeeName
+from
+Customers as C
+Join Suppliers as S
+on C.City = S.City
+Join Employees as E
+on S.city = E.City
+group by C.ContactName, C.city, E.FirstName, E.LastName, S.ContactName
+order by C.ContactName;
+go
+
+ContactName	ContactName	city	EmployeeName
+Ann Devon	Charlotte Cooper	London	Anne, Dodsworth
+Ann Devon	Charlotte Cooper	London	Michael, Suyama
+Ann Devon	Charlotte Cooper	London	Robert, King
+Ann Devon	Charlotte Cooper	London	Steven, Buchanan
+Elizabeth Brown	Charlotte Cooper	London	Anne, Dodsworth
+Elizabeth Brown	Charlotte Cooper	London	Michael, Suyama
+Elizabeth Brown	Charlotte Cooper	London	Robert, King
+Elizabeth Brown	Charlotte Cooper	London	Steven, Buchanan
+Hari Kumar	Charlotte Cooper	London	Anne, Dodsworth
+Hari Kumar	Charlotte Cooper	London	Michael, Suyama
+Hari Kumar	Charlotte Cooper	London	Robert, King
+Hari Kumar	Charlotte Cooper	London	Steven, Buchanan
+Simon Crowther	Charlotte Cooper	London	Anne, Dodsworth
+Simon Crowther	Charlotte Cooper	London	Michael, Suyama
+Simon Crowther	Charlotte Cooper	London	Robert, King
+Simon Crowther	Charlotte Cooper	London	Steven, Buchanan
+Thomas Hardy	Charlotte Cooper	London	Anne, Dodsworth
+Thomas Hardy	Charlotte Cooper	London	Michael, Suyama
+Thomas Hardy	Charlotte Cooper	London	Robert, King
+Thomas Hardy	Charlotte Cooper	London	Steven, Buchanan
+Victoria Ashworth	Charlotte Cooper	London	Anne, Dodsworth
+Victoria Ashworth	Charlotte Cooper	London	Michael, Suyama
+Victoria Ashworth	Charlotte Cooper	London	Robert, King
+Victoria Ashworth	Charlotte Cooper	London	Steven, Buchanan
